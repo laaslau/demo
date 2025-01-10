@@ -14,7 +14,15 @@
 
 
 using namespace std::chrono_literals;
-
+/*
+* Class for feeding texture by video data, expected format is B8R8G8A8
+* 
+* std::vector buffer need to be feeded with frame data, here it done in threadFn.
+* This content will passed to renderer in renderer thread.
+* Buffer size (in correlation with width and height may be changed)
+* 
+* 
+*/
 class MyVideoSource : public My::Common::IVideoSource
 {
 	uint64_t sequenceNo{};
@@ -87,7 +95,7 @@ MyVideoSource g_mvc;
 
 static int mine()
 {
-	My::Gui::GuiContainer container("Viewer", "1.0.0.0");
+	My::Gui::GuiContainer container("DEMO", "1.0.0.0");
 	
 	My::Gui::VideoWindow videoW("Video", &g_mvc);
 	container.add("video", &videoW);
