@@ -20,7 +20,8 @@ using namespace std::chrono_literals;
 * std::vector buffer need to be feeded with frame data, here it done in threadFn.
 * This content will passed to renderer in renderer thread.
 * Buffer size (in correlation with width and height may be changed)
-* 
+*
+* NB! buffer updated need to be protected by std::lock_guard lck(mtx);
 * 
 */
 class MyVideoSource : public My::Common::IVideoSource
