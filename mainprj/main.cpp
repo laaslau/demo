@@ -21,7 +21,7 @@ using namespace std::chrono_literals;
 * This content will passed to renderer in renderer thread.
 * Buffer size (in correlation with width and height may be changed)
 *
-* NB! buffer updated need to be protected by std::lock_guard lck(mtx);
+* NB! buffer update need to be protected by std::lock_guard lck(mtx);
 * 
 */
 class MyVideoSource : public My::Common::IVideoSource
