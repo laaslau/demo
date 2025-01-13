@@ -15,12 +15,13 @@
 
 using namespace std::chrono_literals;
 /*
-* Class for feeding texture by video data, expected format is B8R8G8A8
+* Class for feeding texture by video data, expected format is B8G8R8A8
 * 
 * std::vector buffer need to be feeded with frame data, here it done in threadFn.
 * This content will passed to renderer in renderer thread.
 * Buffer size (in correlation with width and height may be changed)
-* 
+*
+* NB! buffer update need to be protected by std::lock_guard lck(mtx);
 * 
 */
 class MyVideoSource : public My::Common::IVideoSource
